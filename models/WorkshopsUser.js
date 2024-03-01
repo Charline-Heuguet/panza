@@ -2,12 +2,12 @@ const mongoose = require("mongoose")
 
 const WorkshopsUserSchema = mongoose.Schema({
     user: {
-        type: string,
+        type: String,
         ref: 'User',
         required: true
     },
     workshop: {
-        type: string,
+        type: String,
         ref: 'Workshop',
         required: true
     },

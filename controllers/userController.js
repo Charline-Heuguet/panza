@@ -2,6 +2,7 @@ const User = require("../models/Users.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+//Inscription d'un utilisateur
 exports.signUp = (req, res, next) => {
   console.log(req.body.password);
   bcrypt
@@ -22,6 +23,7 @@ exports.signUp = (req, res, next) => {
     .catch((error) => res.status(501).json({ error }));
 };
 
+// Connexion d'un utilisateur
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
@@ -44,4 +46,16 @@ exports.login = (req, res, next) => {
       }
     })
     .catch((error) => res.status(500).json({ error }));
+};
+
+// récupérer les informations de l'utilisateur
+exports.getUserInfo = (req, res, next) => {
+  User.findById(req.params.userId)
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ message: 'Utilisateur non trouvé.' });
+      }
+      res.status(200).json(user);
+    })
+    .catch(error => res.status(500).json({ error }));
 };

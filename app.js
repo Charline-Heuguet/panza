@@ -27,8 +27,10 @@ const userRoutes = require('./routes/users.js');
 const showRoutes = require('./routes/shows.js');
 const workshopRoutes = require('./routes/workshops.js');
 const rolesRoutes = require('./routes/roles.js');
+// Routes pour les relations
 const rolesUsersRoutes = require('./routes/rolesusers.js');
 const showusersRoutes = require('./routes/showusers.js');
+const workshopsUsersRoutes = require('./routes/workshopsusers.js');
 
 // On utilise les routes
 app.use('/api/users', userRoutes);
@@ -37,6 +39,7 @@ app.use('/api/workshops', workshopRoutes);
 app.use('/api/roles', rolesRoutes);
 app.use('/api/rolesusers', rolesUsersRoutes);
 app.use('/api/showusers', showusersRoutes);
+app.use('/api/workshopsusers', workshopsUsersRoutes);
 
 // On exporte l’application
 module.exports = app;

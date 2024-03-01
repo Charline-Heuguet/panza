@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const workshopsUserController = require('../controllers/roleController');
+const workshopsUserController = require('../controllers/workshopsUserController.js');
 
 // GET
 router.get('/', workshopsUserController.getAllWorkshopsUser);
@@ -15,3 +15,4 @@ router.put('/:id', workshopsUserController.updateWorkshopUser);
 // DELETE
 router.delete('/:id', workshopsUserController.deleteWorkshopUser);
 
+module.exports = router;
